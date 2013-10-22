@@ -6,35 +6,41 @@
 Using APG, this...
 
     <% apg = AttributePairGenerator.new(foo) %>
-    <dl>
-      <%= form_tag foo_path(foo.id), method: :put do -%>
+    <%= form_tag foo_path(foo.id), method: :put do -%>
+      <dl>
         <%= apg.text_field(attr: :title, help: "the title of your foo") %>
         <%= apg.date(attr: :starts_at) %>
         <%= apg.plain_text(attr: :status) %>
-      <% end %>
-    </dl>
+      </dl>
+    <% end %>
 
 generates...
 
-    <dl>
-      <form accept-charset="UTF-8" action="/foo" method="post">
+    <form accept-charset="UTF-8" action="/foo" method="post">
+      <dl>
         <div class="attribute-pair">
           <dt>title</dt>
-          <dd><input id="title" name="title" type="text" value="bar"></dd>
-          <span class="help-inline">the title of your foo</span>
+          <dd>
+            <input id="title" name="title" type="text" value="bar">
+            <span class="help-inline">the title of your foo</span>
+          </dd>
         </div>
         <div class="attribute-pair">
           <dt>starts at</dt>
-          <dd><input class="datepicker" id="starts_at" name="starts_at" type="text" value="2013-10-30 05:00:00 +0000"></dd>
-          <span class="help-inline"></span>
+          <dd>
+            <input class="datepicker" id="starts_at" name="starts_at" type="text" value="2013-10-30 05:00:00 +0000">
+            <span class="help-inline"></span>
+          </dd>
         </div>
         <div class="attribute-pair">
           <dt>status</dt>
-          <dd>approved</dd>
-          <span class="help-inline"></span>
+          <dd>
+            approved
+            <span class="help-inline"></span>
+          </dd>
         </div>
-      </form>
-    </dl>
+      </dl>
+    </form>
 
 ## Installation
 

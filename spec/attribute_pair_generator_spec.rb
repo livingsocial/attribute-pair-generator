@@ -3,26 +3,25 @@ require 'spec_helper'
 describe AttributePairGenerator do
   let(:test_object) { double(id: 1, full_name: "foo bar", date: "2013-05-13", featured: true, scheduler: 2) }
   let(:subject) { AttributePairGenerator.new(test_object) }
-  let(:generated) { Nokogiri::XML(subject.send(generator_method, generator_arguments)) }
+  let(:generated) { Nokogiri::HTML(subject.send(generator_method, generator_arguments)) }
 
   shared_examples 'a generated pair structure' do
-    it { generated.css('div').should be_present }
-    it { generated.css('div dt').should be_present }
-    it { generated.css('div dd').should be_present }
+    it { generated.css('dt').should be_present }
+    it { generated.css('dd').should be_present }
   end
 
   shared_examples 'accepts standard options' do
     context 'if given a help option' do
       it 'creates a span with the help text' do
         generator_arguments[:help] = Faker::Lorem.sentence
-        generated.css("div span.help-inline").text.should eq(generator_arguments[:help])
+        generated.css("dd span.help-inline").text.should eq(generator_arguments[:help])
       end
     end
 
     context 'if no help text given' do
       it 'creates an empty help text area' do
         generator_arguments.keys.should_not include(:help)
-        generated.css("div span.help-inline").text.should be_empty
+        generated.css("dd span.help-inline").text.should be_empty
       end
     end
 

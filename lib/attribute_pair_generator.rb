@@ -76,11 +76,11 @@ class AttributePairGenerator
   end
 
   def render(content, options)
-    content_tag(:div, class: "attribute-pair") do
-      content_tag(:dt) { options[:label] ? options[:label].to_s : options[:attr].to_s.humanize.downcase } +
-        content_tag(:dd, options[:dd_options]) { content.to_s } +
-        content_tag(:span, class: "help-inline") { options[:help].to_s }
-    end
+    dt_content = options[:label] ? options[:label].to_s : options[:attr].to_s.humanize.downcase
+    dd_content = content.to_s
+    dd_content += content_tag(:span, class: "help-inline") { options[:help].to_s } if options[:help]
+    content_tag(:dt) { dt_content } +
+      content_tag(:dd, options[:dd_options]) { dd_content.html_safe }
   end
 
   def value(options)
