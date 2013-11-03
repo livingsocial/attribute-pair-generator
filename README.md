@@ -18,27 +18,21 @@ generates...
 
     <form accept-charset="UTF-8" action="/foo" method="post">
       <dl>
-        <div class="attribute-pair">
-          <dt>title</dt>
-          <dd>
-            <input id="title" name="title" type="text" value="bar">
-            <span class="help-inline">the title of your foo</span>
-          </dd>
-        </div>
-        <div class="attribute-pair">
-          <dt>starts at</dt>
-          <dd>
-            <input class="datepicker" id="starts_at" name="starts_at" type="text" value="2013-10-30 05:00:00 +0000">
-            <span class="help-inline"></span>
-          </dd>
-        </div>
-        <div class="attribute-pair">
-          <dt>status</dt>
-          <dd>
-            approved
-            <span class="help-inline"></span>
-          </dd>
-        </div>
+        <dt>title</dt>
+        <dd>
+          <input id="title" name="title" type="text" value="bar">
+          <span class="help-inline">the title of your foo</span>
+        </dd>
+        <dt>starts at</dt>
+        <dd>
+          <input class="datepicker" id="starts_at" name="starts_at" type="text" value="2013-10-30 05:00:00 +0000">
+          <span class="help-inline"></span>
+        </dd>
+        <dt>status</dt>
+        <dd>
+          approved
+          <span class="help-inline"></span>
+        </dd>
       </dl>
     </form>
 
