@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.email         = "andrew.thal@livingsocial.com"
   gem.description   = %q{Easily generate form fields and object information fields with labels.}
   gem.summary       = %q{Easily generate form fields and object information fields with labels.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/livingsocial/attribute-pair-generator"
 
   gem.license = 'MIT'
 
