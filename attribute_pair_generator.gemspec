@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "attribute_pair_generator"
-  gem.version       = "1.0.1"
+  gem.version       = "1.1.0"
   gem.authors       = ["Andrew Thal", "Jeff Whitmire"]
   gem.email         = "andrew.thal@livingsocial.com"
   gem.description   = %q{Easily generate form fields and object information fields with labels.}
