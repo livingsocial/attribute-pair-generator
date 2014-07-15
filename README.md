@@ -18,17 +18,23 @@ generates...
 
     <form accept-charset="UTF-8" action="/foo" method="post">
       <dl>
-        <dt>title</dt>
+        <dt>
+          <label for"title">title</label>
+        </dt>
         <dd>
           <input id="title" name="title" type="text" value="bar">
           <span class="help-inline">the title of your foo</span>
         </dd>
-        <dt>starts at</dt>
+        <dt>
+          <label for"starts_at">starts at</label>
+        </dt>
         <dd>
           <input class="datepicker" id="starts_at" name="starts_at" type="text" value="2013-10-30 05:00:00 +0000">
           <span class="help-inline"></span>
         </dd>
-        <dt>status</dt>
+        <dt>
+          <label for"status">status</label>
+        </dt>
         <dd>
           approved
           <span class="help-inline"></span>

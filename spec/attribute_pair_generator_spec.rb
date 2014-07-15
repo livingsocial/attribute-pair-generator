@@ -7,6 +7,7 @@ describe AttributePairGenerator do
 
   shared_examples 'a generated pair structure' do
     it { generated.css('dt').should be_present }
+    it { generated.css('dt').children.first.name.should == 'label' }
     it { generated.css('dd').should be_present }
   end
 
@@ -62,8 +63,12 @@ describe AttributePairGenerator do
         generated.css('dd').children.last['name'].should == "#{generator_arguments[:prefix]}[#{generator_arguments[:attr]}]"
       end
 
-      it 'does not use the prefix in the label' do
+      it 'does not use the prefix in the label text' do
         generated.css("dt").text.should eq(generator_arguments[:attr].to_s.humanize.downcase)
+      end
+
+      it "uses the prefix in the label tag 'for'" do
+        generated.css('dt').children.last['for'].should == "#{generator_arguments[:prefix]}_#{generator_arguments[:attr]}"
       end
     end
 
@@ -78,6 +83,10 @@ describe AttributePairGenerator do
 
       it 'uses the attribute as the name' do
         generated.css('dd').children.last['id'].should == generator_arguments[:attr].to_s
+      end
+
+      it "uses the attribute in the label tag 'for'" do
+        generated.css('dt').children.last['for'].should == generator_arguments[:attr].to_s
       end
     end
   end

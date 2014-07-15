@@ -76,7 +76,7 @@ class AttributePairGenerator
   end
 
   def render(content, options)
-    dt_content = options[:label] ? options[:label].to_s : options[:attr].to_s.humanize.downcase
+    dt_content = label(options)
     dd_content = content.to_s
     dd_content += content_tag(:span, class: "help-inline") { options[:help].to_s } if options[:help]
     content_tag(:dt) { dt_content } +
@@ -105,5 +105,10 @@ class AttributePairGenerator
     else
       options[:attr]
     end
+  end
+
+  def label(options)
+    label_tag(attribute(options),
+              options[:label] ? options[:label].to_s : options[:attr].to_s.humanize.downcase)
   end
 end
